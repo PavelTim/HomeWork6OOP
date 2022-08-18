@@ -103,19 +103,6 @@ class Student:
         Задание 3. Переопределение операторов сравнения
         - x == y вызывает x.__eq__(y).'''
         return self._average_grade() == other._average_grade()
-'''
-    __ne__(self, other) - x != y
-    вызывает
-    x.__ne__(y)
-
-    __gt__(self, other) - x > y
-    вызывает
-    x.__gt__(y).
-
-    __ge__(self, other) - x ≥ y
-    вызывает
-    x.__ge__(y).'''
-
 
 class Mentor:
     ''' class Mentor. '''
@@ -246,11 +233,8 @@ class Reviewer(Mentor):
         return (f'Имя: {self.name}\n'
         f'Фамилия: {self.surname}')
 
-
-
-
 if __name__ == '__main__':
-
+    # небольшое тестирование
     best_student = Student('Ruoy', 'Eman', 'your_gender')
     best_student.courses_in_progress += ['Python']
     not_best_student = Student('John James', 'Rambo', 'male')
@@ -269,28 +253,10 @@ if __name__ == '__main__':
     cool_reviewer.rate_hw(best_student, 'Python', 10)
     any(cool_reviewer.rate_hw(not_best_student, 'Python', 8) for _ in ['одын', 'дфа', 'тры', 'цытыры'])
 
-    print('Оченки студента:', best_student.grades)
-    print(cool_mentor.courses_attached)
-    print()
-    print('Студент, курсы:', best_student.courses_in_progress)
-    print('Лектор, курсы:', cool_lecturer.courses_attached)
-
-    print('#'*50+'\n', 'Оценки cool_lecturer', cool_lecturer.grades)
-    print('Средняя оценка cool_lecturer', cool_lecturer._average_grade())
     any(best_student.rate_lecturers(cool_lecturer, 'Python', 10) for _ in [1, 2, 3, 4])
     print('Оченки лектора:', cool_lecturer.grades)
-    print('Lecturer.__dict__:', Lecturer.__dict__)
 
     print('################# __str__ #########################')
     print('-'*25, 'Лучший студент:\n', best_student)
     print('-'*25, 'Клевый лектор:\n', cool_lecturer)
     print('-'*25, 'Клевый проверяющий:\n', cool_reviewer)
-
-    print('################# сравнение студентов #########################')
-    print(best_student._average_grade(), not_best_student._average_grade())
-    print(best_student > not_best_student)
-    print(best_student < not_best_student)
-    print(best_student == not_best_student)
-    print(best_student != not_best_student)
-    print(best_student >= not_best_student)
-    print(best_student <= not_best_student)
